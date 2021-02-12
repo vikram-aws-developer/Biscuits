@@ -12,7 +12,7 @@ public interface EmployeeService {
 
 	List<Employee> listByDepart(String department);
 
-	List<Employee> listByResig(String resignation);
+	List<Employee> listByResig(String designation);
 
 	void terminateEmployee(String email);
 

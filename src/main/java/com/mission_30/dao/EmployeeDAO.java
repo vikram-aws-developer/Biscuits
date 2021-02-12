@@ -1,6 +1,7 @@
 package com.mission_30.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -10,8 +11,8 @@ public interface EmployeeDAO extends JpaRepository<Employee , Integer>{
 
 	List<Employee> findByDepartment(String department);
 
-	List<Employee> findByResignation(String resignation);
+	List<Employee> findByDesignation(String designation);
 
-	Employee findByEmail(String email);
+	Optional<Employee> findByEmail(String email);
 
 }

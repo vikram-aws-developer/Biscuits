@@ -1,6 +1,7 @@
 package com.mission_30.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,23 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee createEmployee(Employee employee) {
-		return empDAO.save(employee);
+		
+		// getting employee details by email id 
+		Employee save=null;
+		
+		Optional<Employee> employee2 = empDAO.findByEmail(employee.getEmail());
+		//employee2.get().getEmail().equalsIgnoreCase(employee.getEmail())		
+		if(!employee2.isPresent()) {
+			  save = empDAO.save(employee);
+			  return save;
+		} 
+		else {
+			System.out.println("Email ID already Exist");
+		}
+
+				return save;
+		
+		
 	}
 
 	@Override
@@ -32,16 +49,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public List<Employee> listByResig(String resignation) {
+	public List<Employee> listByResig(String designation) {
 		// TODO Auto-generated method stub
-		return empDAO.findByResignation(resignation);
+		return empDAO.findByDesignation(designation);
 	}
 
 	@Override
 	public void terminateEmployee(String email) {
-		Employee employee  = empDAO.findByEmail(email);
-		empDAO.deleteById(employee.getEmpId());
+		 Optional<Employee> employee = empDAO.findByEmail(email);
+		empDAO.deleteById(employee.get().getEmpId());
 	}
 	 
 
 }
+//

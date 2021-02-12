@@ -27,8 +27,8 @@ public class Employee {
 	@Column(name ="department")
 	private String department;
 	
-	@Column(name ="resignation")
-	private String resignation;
+	@Column(name ="designation")
+	private String designation;
 
 	public Integer getEmpId() {
 		return empId;
@@ -70,12 +70,12 @@ public class Employee {
 		this.department = department;
 	}
 
-	public String getResignation() {
-		return resignation;
+	public String getDesignation() {
+		return designation;
 	}
 
-	public void setResignation(String resignation) {
-		this.resignation = resignation;
+	public void setDesignation(String designation) {
+		this.designation = designation;
 	}
 	
 	

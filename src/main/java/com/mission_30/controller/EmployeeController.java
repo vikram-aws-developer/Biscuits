@@ -34,9 +34,9 @@ public class EmployeeController {
 		return empService.listByDepart(department);
 	}
 
-	@RequestMapping(value ="/listByResig/{resignation}", method = RequestMethod.GET) 
-	public List<Employee> listByResig(@PathVariable String  resignation) {
-		return empService.listByResig( resignation);
+	@RequestMapping(value ="/listByResig/{designation}", method = RequestMethod.GET) 
+	public List<Employee> listByResig(@PathVariable String  designation) {
+		return empService.listByResig( designation);
 	}
 	
 	@RequestMapping(value ="/terminteEmp/{email}", method = RequestMethod.DELETE)
