@@ -19,7 +19,7 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService empService;
 	
-	@RequestMapping(value ="/", method = RequestMethod.GET)
+	@RequestMapping(value ="/homepage", method = RequestMethod.GET)
 	public String home() {
 		return "Welcome to Employee Common Service Portal";
 	}
