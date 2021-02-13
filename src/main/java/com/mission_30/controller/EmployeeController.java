@@ -19,6 +19,11 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService empService;
 	
+	@RequestMapping(value ="/", method = RequestMethod.GET)
+	public String home() {
+		return "Welcome to Employee Common Service Portal";
+	}
+	
 	@RequestMapping(value = "/create", method = RequestMethod.POST )
 	public Employee cretaeEmployee(@RequestBody Employee employee)  {
 		return empService.createEmployee(employee);
